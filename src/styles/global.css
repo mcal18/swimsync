@@ -1,73 +1,318 @@
 :root {
-    --bg-dark: #081120;
-    --bg-medium: #0B1736;
-    --bg-light: #102040;
 
-    --pool-blue: #4DA8FF;
-    --ocean-blue: #2565EB;
-    --turquoise: #2DD4BF;
+  /* BACKGROUND COLORS */
+  --bg-deep: #040b16;
+  --bg-ocean: #071a33;
+  --bg-blue: #0b2d55;
 
-    --gold: #FBBF24;
-    --silver: #CBD5E1;
-    --bronze: #D97706;
-    --success: #22C55E;
+  /* BRAND COLORS */
+  --pool-blue: #58b8ff;
+  --ocean-blue: #2565eb;
+  --turquoise: #33d6c8;
 
-    --card-glass: rgba(16, 32, 64, 0.65);
-    --border-glass: rgba(77, 168, 255, 0.15);
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --gold: #fbbf24;
+  --silver: #cbd5e1;
+  --bronze: #d97706;
+  --success: #22c55e;
+
+  /* GLASS */
+  --card-glass:
+      linear-gradient(
+          145deg,
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.03)
+      );
+
+  --border-glass: rgba(255,255,255,.10);
+  --border-glass-hover: rgba(88,184,255,.35);
+
+  /* SHADOWS */
+  --shadow-base:
+      0 15px 35px rgba(0,0,0,.35);
+
+  --shadow-hover:
+      0 20px 45px rgba(0,0,0,.45),
+      0 0 35px rgba(77,168,255,.15);
+
+  --inset-sheen:
+      inset 0 1px 1px rgba(255,255,255,.05);
+
+  /* TYPOGRAPHY */
+
+  --font-primary:
+      "Plus Jakarta Sans",
+      system-ui,
+      sans-serif;
+
+  --font-display:
+      "Space Grotesk",
+      sans-serif;
+
 }
 
-body {
-    margin: 0;
-    background: linear-gradient(180deg, var(--bg-dark) 0%, (var(--bg-medium) 50%), var(--bg-light) 100%);
-    color: #ffffff;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
+/* ------------------------------------------------ */
+
+#root{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    text-align:left;
 }
+
+body{
+
+    margin:0;
+    min-height:100vh;
+
+    font-family:var(--font-primary);
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(120,210,255,.15),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(77,168,255,.12),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(51,214,200,.08),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #0d2f57 0%,
+            #0a2140 20%,
+            #07172f 45%,
+            #05101f 70%,
+            #030812 100%
+        );
+
+    overflow-x:hidden;
+
+}
+
+/* ------------------------------------------------ */
 
 h1,
 h2,
 h3,
 .swim-metric-value,
-.countdown-text {
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.02em;
+.countdown-text{
+
+    font-family:var(--font-display);
+    letter-spacing:-.02em;
+
 }
 
-.swim-app-layout {
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
+/* ------------------------------------------------ */
+
+.swim-app-layout{
+
+    display:flex;
+
+    width:100%;
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow: hidden;
+
 }
 
-.swim-main-viewport {
-    flex: 1;
-    padding: 40px;
-    margin-left: 260px;
-    box-sizing: border-box;
+/* Light rays */
+
+.swim-app-layout::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+            110deg,
+
+            transparent 5%,
+
+            rgba(255,255,255,.04) 15%,
+
+            transparent 28%,
+
+            rgba(255,255,255,.025) 40%,
+
+            transparent 58%
+
+        );
+
+    opacity:.9;
+
+    animation: lightDrift 22s linear infinite;
+
 }
 
-.swim-card-glass {
-    background: var(--card-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-glass);
-    border-radius: 16px;
-    box-shadow: var(--shadow-glass);
-    padding: 24px;
-    box-sizing: border-box;
+/* Soft underwater glow */
+
+.swim-app-layout::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(88,184,255,.18),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(51,214,200,.10),
+            transparent 40%
+        );
+    
+    animation: waterGlow 18s ease-in-out infinite alternate;
+
 }
 
-.swim-page-heading {
-    margin: 0 0 8px 0;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #ffffff;
+/* ------------------------------------------------ */
+
+.swim-main-viewport{
+
+    flex:1;
+
+    margin-left:260px;
+
+    padding:56px 64px;
+
+    min-height:100vh;
+
+    box-sizing:border-box;
+
 }
 
-.swim-page-subtitle {
-    margin: 0 0 32px 0;
-    color: var(--silver);
-    font-size: 1rem;
+/* ------------------------------------------------ */
+
+.swim-card-glass{
+
+    background:var(--card-glass);
+
+    backdrop-filter:blur(26px) saturate(160%);
+
+    -webkit-backdrop-filter:blur(26px) saturate(160%);
+
+    border:1px solid var(--border-glass);
+
+    border-radius:22px;
+
+    box-shadow:
+
+        var(--shadow-base),
+
+        var(--inset-sheen);
+
+    transition:
+        .35s ease;
+
+    padding:32px;
+
+}
+
+.swim-card-glass:hover{
+
+    border-color:var(--border-glass-hover);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        var(--shadow-hover),
+
+        var(--inset-sheen);
+
+}
+
+/* ------------------------------------------------ */
+
+.swim-page-heading{
+
+    margin:0 0 12px;
+
+    font-size:2.7rem;
+
+    font-weight:700;
+
+    color:white;
+
+    letter-spacing:-.03em;
+
+}
+
+.swim-page-subtitle{
+
+    margin:0 0 48px;
+
+    color:var(--silver);
+
+    opacity:.82;
+
+    font-size:1.1rem;
+
+}
+
+/* ANIMATIONS */
+@keyframes waterGlow {
+    0%{
+        transform: translateY(0px) translateX(0px);
+    }
+
+    50%{
+        transform: translateY(-10px) translateX(8px);
+    }
+
+    100% {
+        transform: translateY(8px) translateX(-8px);
+    }
+}
+
+@keyframes lightDrift {
+    from{
+        transform: translateX(-30px);
+    }
+
+    to{
+        transform: translateX(30px);
+    }
+}
+
+/* ------------------------------------------------ */
+
+@media (max-width:900px){
+
+    .swim-main-viewport{
+
+        margin-left:0;
+
+        padding:28px;
+
+    }
+
 }

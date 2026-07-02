@@ -6,6 +6,7 @@ import './App.css';
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import BackgroundEffects from './components/BackgroundEffects';
 import Dashboard from './pages/Dashboard';
 import Workouts from './pages/Workouts';
 
@@ -15,8 +16,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div style={{ display: 'flex ' }}>
+        <div className="swim-app-layout">
           <Sidebar />
+
+          <BackgroundEffects />
 
           <main className="swim-main-viewport">
             <Routes>
