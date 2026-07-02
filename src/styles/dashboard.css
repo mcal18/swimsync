@@ -1,0 +1,17 @@
+/* DASHBOARD STYLES */
+.target-metric-card {
+    margin-top: 24px;
+    max-width: 350px;
+}
+
+.tracking-distance {
+    font-size: 2rem;
+    margin: 8px 0;
+    font-weight: 700;
+    color: var(--pool-blue);
+}
+
+.goal-status-label {
+    font-size: 0.85rem;
+    color: var(--silver);
+}

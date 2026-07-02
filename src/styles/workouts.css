@@ -1,0 +1,9 @@
+/* WORKOUTS PAGE STYLES */
+.workouts-container {
+    margin-top: 24px;
+}
+
+.workout-log-empty {
+    color: var(--silver);
+    font-style: italic;
+}

@@ -1,0 +1,73 @@
+:root {
+    --bg-dark: #081120;
+    --bg-medium: #0B1736;
+    --bg-light: #102040;
+
+    --pool-blue: #4DA8FF;
+    --ocean-blue: #2565EB;
+    --turquoise: #2DD4BF;
+
+    --gold: #FBBF24;
+    --silver: #CBD5E1;
+    --bronze: #D97706;
+    --success: #22C55E;
+
+    --card-glass: rgba(16, 32, 64, 0.65);
+    --border-glass: rgba(77, 168, 255, 0.15);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, (var(--bg-medium) 50%), var(--bg-light) 100%);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.swim-metric-value,
+.countdown-text {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.swim-app-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.swim-main-viewport {
+    flex: 1;
+    padding: 40px;
+    margin-left: 260px;
+    box-sizing: border-box;
+}
+
+.swim-card-glass {
+    background: var(--card-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    box-shadow: var(--shadow-glass);
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.swim-page-heading {
+    margin: 0 0 8px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.swim-page-subtitle {
+    margin: 0 0 32px 0;
+    color: var(--silver);
+    font-size: 1rem;
+}
