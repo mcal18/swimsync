@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { FiHome, FiActivity, FiTrendingUp, FiTarget, FiCalendar, FiSettings } from 'react-icons/fi';
 import logoImg from '../assets/swimsyncLogo.png';
 import '../styles/Sidebar.css';
 
 function Sidebar() {
+
+  const { user, profile, logout } = useAuth();
+
   return (
     <aside className="swim-sidebar">
       
@@ -42,6 +46,17 @@ function Sidebar() {
           <FiSettings /> <span>Settings</span>
         </NavLink>
       </nav>
+
+      <div className="sidebar-user-card">
+        <h3>{profile?.name || "New Swimmer"}</h3>
+
+        <p>{user?.email}</p>
+
+        <small>{profile?.team || "No Team"}</small>
+      </div>
+      <button onClick={logout}>
+        Logout
+      </button>
     </aside>
   );
 }
