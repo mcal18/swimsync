@@ -9,7 +9,7 @@
 }*/
 
 /* WORKOUT CONTENT CONTROLLERS */
-.workout-log-list{
+.workout-log-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
@@ -63,38 +63,75 @@
     font-size: 1.5rem !important;
     color: #ffffff;
     font-weight: 600;
+    transition: color .25s;
 }
 
-/* Icons */
+.workout-log-card:hover .workout-card-title {
+    color: var(--turquoise);
+}
+
+/* Icons & Buttons*/
 .edit-icon {
     font-size: 1rem;
     color: var(--silver);
-    transition: color 0.2s ease;
-}
-
-.workout-card-title:hover .edit-icon {
-    color: var(--turquoise);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        color .25s ease;
 }
 
 .delete-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 18px;
+    right: 18px;
     background: transparent;
-    border: none;
-    font-size: 1.1rem;
     color: var(--silver);
     cursor: pointer;
-    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease, color 0.2s ease;
+    opacity: 0;
+    border: none;
+    font-size: 1rem;
+    transform: scale(.85);
+    transition:
+        opacity .25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
 }
 
-.delete-btn:hover{
-    transform: scale(1.1);
+.workout-log-card:hover .edit-icon,
+.workout-log-card:hover .delete-btn {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
+
+.edit-icon:hover,
+.delete-btn:hover {
     color: var(--turquoise);
+}
+
+.add-workout-btn {
+    margin-bottom: 32px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(90deg,
+            var(--pool-blue),
+            var(--turquoise));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+    box-shadow: 0 10px 25px rgba(88, 184, 255, .25);
+}
+
+.add-workout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 35px rgba(51, 214, 200, .25);
 }
 
 /* INTERIOR DATA VALUE LINES */
@@ -129,7 +166,7 @@
 .detail-value-text {
     margin: 0;
     font-size: 1.05rem;
-    color: rgba(255,255,255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
 }
 

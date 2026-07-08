@@ -49,14 +49,8 @@ function Sidebar() {
 
       <div className="sidebar-user-card">
         <h3>{profile?.name || "New Swimmer"}</h3>
-
-        <p>{user?.email}</p>
-
         <small>{profile?.team || "No Team"}</small>
       </div>
-      <button onClick={logout}>
-        Logout
-      </button>
     </aside>
   );
 }
