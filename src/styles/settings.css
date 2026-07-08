@@ -321,29 +321,3 @@
     border-color: rgba(255, 90, 90, .5);
     color: #fff;
 }
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-    .settings-card {
-        padding: 28px;
-    }
-
-    .settings-profile {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .settings-actions {
-        flex-direction: column;
-        align-items: stretch;
-
-    }
-
-    .save-profile-btn,
-    .logout-btn {
-        width: 100%;
-    }
-
-}

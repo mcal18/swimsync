@@ -278,24 +278,3 @@
 
     opacity: .7;
 }
-
-@media (max-width: 768px) {
-    .modal-card {
-        padding: 28px;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .modal-row {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-actions {
-        flex-direction: column-reverse;
-    }
-
-    .modal-cancel-btn,
-    .modal-save-btn {
-        width: 100%;
-    }
-}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import WorkoutModal from "../components/WorkoutModal";
 import WorkoutCard from "../components/WorkoutCard";
+import WorkoutStats from "../components/WorkoutStats";
 import Login from "../components/Login";
 
 import {
@@ -13,6 +14,7 @@ import {
 } from "../services/workouts";
 
 import { auth } from "../config/firebase";
+import { FaPersonSwimming } from "react-icons/fa6";
 
 function Workouts() {
   const [showModal, setShowModal] = useState(false);
@@ -104,9 +106,17 @@ function Workouts() {
         Track intervals, splits, and custom yardage milestones.
       </p>
 
-      <button className="add-workout-btn" onClick={() => setShowModal(true)}>
-        + Add Workout
-      </button>
+      <WorkoutStats workouts={workouts} />
+
+      <div className="workouts-tool-bar">
+        <div className="toolbar-info">
+          <h2>Workout Log</h2>
+          <p>View, edit, and organize your swim sessions.</p>
+        </div>
+        <button className="add-workout-btn" onClick={() => setShowModal(true)}>
+          + Add Workout
+        </button>
+      </div>
 
       {showModal && (
         <WorkoutModal
@@ -118,8 +128,20 @@ function Workouts() {
 
       <div className="workout-log-list">
         {workouts.length === 0 ? (
-          <div className="swim-card-glass">
-            <p>No workouts logged yet.</p>
+          <div className="empty-workouts">
+            <div className="empty-icon">
+              <FaPersonSwimming />
+            </div>
+            <h2>No workouts yet</h2>
+            <p>Your training history will appear here.
+              Start by logging your first swim session.
+            </p>
+            <button
+              className="add-workout-btn"
+              onClick={() => setShowModal(true)}
+            >
+              Log First Workout
+            </button>
           </div>
         ) : (
           workouts.map((workout) => (

@@ -321,18 +321,3 @@
   text-decoration: underline;
   color: var(--pool-blue, #0072ff);
 }
-
-/* RESPONSIVE LAYOUT ALIGNMENTS */
-@media (max-width: 900px) {
-  .swim-auth-wrapper {
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  .auth-branding-panel {
-    padding: 40px 40px 20px 40px;
-    gap: 30px;
-  }
-  .auth-form-panel {
-    padding: 20px 40px 40px 40px;
-  }
-}

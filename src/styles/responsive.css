@@ -1,0 +1,228 @@
+/* LARGE TABLETS */
+
+/* Workouts */
+@media (max-width: 1200px) {
+
+    .workout-log-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* TABLETS */
+@media (max-width: 992px) {
+
+    /* Sidebar */
+    .swim-sidebar {
+        width: 90px;
+        padding: 28px 12px;
+        align-items: center;
+        gap: 36px;
+    }
+
+    .sidebar-brand-text {
+        display: none;
+    }
+
+    .sidebar-logo-graphic {
+        height: 70px;
+        margin: 0;
+    }
+
+    .sidebar-link {
+        justify-content: center;
+        padding: 14px;
+    }
+
+    .sidebar-link span {
+        display: none;
+    }
+
+    .sidebar-link svg {
+        font-size: 1.35rem;
+    }
+
+    .sidebar-user-card {
+        display: none;
+    }
+
+    /* Page Content */
+    .swim-page-content {
+        margin-left: 90px;
+    }
+
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* SMALL TABLETS  */
+@media (max-width: 768px) {
+
+    /* Global Layout */
+    .swim-page-content {
+        padding: 24px;
+    }
+
+    /* Settings */
+    .settings-card {
+        padding: 28px;
+    }
+
+    .settings-profile {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .settings-profile-badges {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .profile-badge {
+        width: 100%;
+    }
+
+    .settings-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .save-profile-btn,
+    .logout-btn {
+        width: 100%;
+    }
+
+    /* Workouts */
+    .workout-log-list {
+        grid-template-columns: 1fr;
+    }
+
+    .workouts-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .add-workout-btn {
+        width: 100%;
+    }
+
+    /* Workout Modal */
+    .modal-card {
+        padding: 28px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-save-btn,
+    .modal-cancel-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* PHONES */
+@media (max-width: 576px) {
+    /* Sidebar*/
+     .swim-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 72px;
+
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0 18px;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border-glass);
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .sidebar-logo-box,
+    .sidebar-user-card {
+        display: none;
+    }
+
+    .sidebar-link {
+        padding: 10px;
+    }
+
+    /* Page Content */
+    .swim-page-content {
+        margin-left: 0;
+        margin-top: 92px;
+        padding: 24px;
+    }
+
+    .swim-page-heading {
+        font-size: 2rem;
+    }
+
+    /* Settings and Cards */
+    .settings-header h1 {
+        font-size: 2rem;
+    }
+
+    .modal-card {
+        padding: 20px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .workout-log-card {
+        min-height: auto;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* OPTIONAL UTILITY CLASSES */
+
+.hide-mobile {
+    display: block;
+}
+
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .show-mobile {
+        display: block;
+    }
+
+}

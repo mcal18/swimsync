@@ -3,11 +3,30 @@
     margin-top: 24px;
 }
 
-/*.workout-log-empty {
-    color: var(--silver);
-    font-style: italic;
-}*/
+/* EMPTY WORKOUTS*/
+.empty-workouts {
+    margin-top: 40px;
+    padding: 70px 40px;
+    border-radius: 24px;
+    text-align: center;
+    background: var(--card-glass);
+    border: 1px solid var(--border-glass);
+}
 
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.empty-workouts h2 {
+    margin-bottom: 12px;
+}
+
+.empty-workouts p {
+    max-width: 420px;
+    margin: 0 auto 30px;
+    color: var(--silver);
+}
 /* WORKOUT CONTENT CONTROLLERS */
 .workout-log-list {
     display: grid;
@@ -25,6 +44,48 @@
     gap: 18px;
     min-height: 280px;
     justify-content: space-between;
+}
+
+/* WORKOUT TOOLBAR */
+.workouts-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 42px 0 28px;
+    gap: 20px;
+}
+
+.toolbar-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.toolbar-info p {
+    margin-top: 6px;
+    color: var(--silver);
+    opacity: .75;
+}
+
+.add-workout-btn {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(90deg,
+            var(--pool-blue),
+            var(--turquoise));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s ease;
+    box-shadow: 0 10px 25px rgba(88, 184, 255, .25);
+}
+
+.add-workout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 35px rgba(51, 214, 200, .25);
 }
 
 /* CARD MODULE SUB-COMPONENTS */
@@ -70,7 +131,7 @@
     color: var(--turquoise);
 }
 
-/* Icons & Buttons*/
+/* Icons*/
 .edit-icon {
     font-size: 1rem;
     color: var(--silver);
@@ -113,27 +174,6 @@
     color: var(--turquoise);
 }
 
-.add-workout-btn {
-    margin-bottom: 32px;
-    padding: 16px 28px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(90deg,
-            var(--pool-blue),
-            var(--turquoise));
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .25s;
-    box-shadow: 0 10px 25px rgba(88, 184, 255, .25);
-}
-
-.add-workout-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 35px rgba(51, 214, 200, .25);
-}
-
 /* INTERIOR DATA VALUE LINES */
 .workout-card-details {
     display: flex;
@@ -168,19 +208,4 @@
     font-size: 1.05rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
-}
-
-/*Card Container
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .workout-log-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .workout-log-list {
-        grid-template-columns: minmax(0, 1fr);
-    }
 }

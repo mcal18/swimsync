@@ -1,0 +1,62 @@
+/* WORKOUTS STATISTICS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(26px) saturate(160%);
+    --webkit-backdrop-filter: blur(26px) saturate(160%);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    box-shadow:
+        var(--shadow-base),
+        var(--inset-sheen);
+    padding: 24px;
+    transition: .25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-glass-hover);
+    box-shadow:
+        var(--shadow-hover),
+        var(--inset-sheen);
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg,
+            var(--pool-blue),
+            var(--turquoise));
+    color: #fff;
+    font-size: 1.4rem;
+    box-shadow: 0 10px 20px rgba(77, 168, 255, .25);
+}
+
+.stat-value {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    margin: 0;
+    color: var(--silver);
+    opacity: .8;
+    font-size: .9rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}

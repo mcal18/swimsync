@@ -12,6 +12,8 @@ import Dashboard from './pages/Dashboard';
 import Workouts from './pages/Workouts';
 import Settings from './pages/Settings';
 
+import "./styles/responsive.css";
+
 function App() {
   const { user } = useAuth();
 
