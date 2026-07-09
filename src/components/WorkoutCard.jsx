@@ -1,4 +1,5 @@
-import { FiEdit, FiTrash } from "react-icons/fi";
+import { FaPersonSwimming } from "react-icons/fa6";
+import { FiEdit, FiTrash, FiClock, FiActivity } from "react-icons/fi";
 
 function WorkoutCard({ workout, onEdit, onDelete }) {
     const workoutDate =
@@ -7,6 +8,12 @@ function WorkoutCard({ workout, onEdit, onDelete }) {
             day: "2-digit",
             year: "numeric",
         }) || "No Date";
+
+    function getFocusBadgeClass(focus) {
+        return `badge-${focus
+            .toLowerCase()
+            .replace(/\s+/g, "-")}`;
+    }
 
     return (
         <div className="swim-card-glass workout-log-card">
@@ -28,18 +35,36 @@ function WorkoutCard({ workout, onEdit, onDelete }) {
                 <FiEdit className="edit-icon" />
             </h2>
 
+            <div className="workout-badges">
+                {workout.focus && (
+                    <span className={`badge ${getFocusBadgeClass(workout.focus)}`}>
+                        {workout.focus}
+                    </span>
+                )}
+
+                {workout.sessionType && (
+                    <span className="badge badge-session">
+                        {workout.sessionType}
+                    </span>
+                )}
+            </div>
+
+            <hr className="workout-divider" />
+
             <div className="workout-card-details">
                 <div className="detail-row">
                     <span className="detail-label">
-                        Focus Area
+                        <FiClock />
+                        Duration
                     </span>
                     <span className="detail-value">
-                        {workout.focus}
+                        {workout.duration} min
                     </span>
                 </div>
 
                 <div className="detail-row">
                     <span className="detail-label">
+                        <FiActivity />
                         Main Set
                     </span>
                     <p className="detail-value-text">
@@ -53,6 +78,10 @@ function WorkoutCard({ workout, onEdit, onDelete }) {
                 onClick={() => onDelete(workout.id)}>
                 <FiTrash />
             </button>
+
+            <div className="card-watermark">
+                <FaPersonSwimming />
+            </div>
         </div>
     );
 }

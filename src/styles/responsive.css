@@ -113,6 +113,16 @@
         width: 100%;
     }
 
+    /* Workout Filters */
+    .workout-filters {
+        flex-direction: column;
+    }
+
+    .workout-filters select,
+    .clear-filters-btn {
+        width: 100%;
+    }
+
     /* Workout Modal */
     .modal-card {
         padding: 28px;
