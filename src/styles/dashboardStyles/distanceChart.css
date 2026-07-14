@@ -1,0 +1,102 @@
+.dashboard-panel {
+    padding: 34px;
+    border-radius: 26px;
+    background: var(--card-glass);
+    border: 1px solid var(--border-glass);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.dashboard-panel:hover {
+    transform: translateY(-4px);
+    border-color: rgba(51, 214, 200, .25);
+    box-shadow:
+        0 0 18px 40px rgba(0, 0, 0, .22),
+        0 0 24px rgba(51, 214, 200, .08);
+}
+
+.dashboard-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-week-summary {
+    display: flex;
+    gap: 32px;
+    margin-top: 26px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-chart-divider {
+    height: 1px;
+    margin: 24px 0 28px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(51, 214, 200, .4),
+            transparent);
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 18px;
+    min-width: 130px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .08);
+    transition: .25s ease;
+}
+
+.summary-item:hover {
+    border-color: rgba(51, 214, 200, .2);
+    transform: translateY(-2px);
+}
+
+.summary-item span {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--silver);
+    opacity: .65;
+}
+
+.summary-item strong {
+    font-size: 1.35rem;
+    color: #fff;
+}
+
+.positive-change {
+    color: var(--turquoise);
+}
+
+.negative-change {
+    color: #ff7d7d;
+}
+
+.recharts-tooltip-wrapper {
+    border-radius: 14px;
+}
+
+.current-week-dot {
+    animation: pulseDot 2.5s infinite;
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}

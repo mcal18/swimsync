@@ -1,4 +1,4 @@
-import "../styles/workoutstats.css";
+import "../styles/workoutStyles/workoutstats.css";
 import {
     FiTarget,
     FiClock,

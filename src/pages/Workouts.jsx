@@ -1,4 +1,4 @@
-import "../styles/workouts.css";
+import "../styles/workoutStyles/workouts.css";
 import { useEffect, useState } from "react";
 
 import WorkoutModal from "../components/WorkoutModal";

@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { MdOutlineWaves } from "react-icons/md";
-import "../styles/workoutmodal.css";
+import "../styles/workoutStyles/workoutmodal.css";
 
 function WorkoutModal({
     onClose,

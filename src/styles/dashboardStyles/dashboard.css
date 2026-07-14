@@ -1,0 +1,31 @@
+/* DASHBOARD STYLES */
+.dashboard-charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-top: 34px;
+    align-items: start;
+}
+
+.dashboard-section-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.dashboard-section-subtitle {
+    margin-top: 6px;
+    color: var(--silver);
+    opacity: .7;
+    font-size: .9rem;
+}
+
+.dashboard-chart-divider {
+    height: 1px;
+    margin: 24px 0 28px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(51, 214, 200, .4),
+            transparent);
+}

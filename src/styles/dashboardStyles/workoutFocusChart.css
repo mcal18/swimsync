@@ -1,0 +1,35 @@
+/* PIE CHART */
+.recharts-legend-wrapper {
+    padding-top: 28px;
+}
+
+.recharts-default-legend {
+    display: flex !important;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.recharts-legend-item-text {
+    color: var(--silver) !important;
+    font-size: .9rem;
+}
+
+.recharts-sector {
+    transition: .25s ease;
+    cursor: pointer;
+}
+
+.recharts-tooltip-item {
+    color: #fff !important;
+}
+
+.dashboard-empty-chart {
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--silver);
+    opacity: .7;
+    font-size: 1rem;
+}
