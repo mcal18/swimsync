@@ -9,6 +9,25 @@ import {
 import "../styles/dashboardStyles/workoutFocusChart.css";
 
 function WorkoutsFocusChart({ workouts }) {
+    if (workouts.length === 0) {
+        return (
+            <div className="swim-card-glass dashboard-records-card">
+                <h2 className="dashboard-section-title">
+                    Workout Focus
+                </h2>
+                <p className="dashboard-section-subtitle">
+                    Distribution of your logged workout focuses
+                </p>
+                <div className="dashboard-empty-state">
+                    <h3>No insights yet</h3>
+                    <p>
+                        Complete your first workout to unlock work focus
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
     const focusTotals = {};
 
     workouts.forEach((workout) => {
@@ -33,23 +52,7 @@ function WorkoutsFocusChart({ workouts }) {
         Recovery: "#88f0d8",
         "Race Pace": "#00d4ff",
     };
-
-    if (chartData.length === 0) {
-        return (
-            <div className="swim-card-glass">
-                <h2 className="dashboard-section-title">
-                    Workout Focus
-                </h2>
-                <p className="dashboard-section-subtitle">
-                    Distribution of your logged workout focuses.
-                </p>
-                <div className="dashboard-empty-chart">
-                    Log your first workout to see your focus distribution.
-                </div>
-            </div>
-        );
-    }
-
+    
     return (
         <div className="swim-card-glass dashboard-panel">
             <div className="dashboard-chart-header">

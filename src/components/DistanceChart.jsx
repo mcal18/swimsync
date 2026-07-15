@@ -73,6 +73,23 @@ function CustomDot(props) {
 }
 
 function DistanceChart({ workouts }) {
+    if (workouts.length === 0) {
+        return (
+            <div className="swim-card-glass dashboard-chart-card">
+                <h2 className="dashboard-section-title">Weekly Distance</h2>
+                <p className="dashboard-section-subtitle">
+                    Total yardage completed each week
+                </p>
+                <div className="dashboard-empty-state">
+                    <h3>No distance data yet</h3>
+                    <p>Log your first workout to see your
+                        weekly distance trends
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
     const sortedWorkouts = [...workouts].sort(
         (a, b) =>
             (a.date?.seconds || 0) -

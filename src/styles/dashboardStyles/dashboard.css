@@ -29,3 +29,25 @@
             rgba(51, 214, 200, .4),
             transparent);
 }
+
+.dashboard-empty-state {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard-empty-state h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.dashboard-empty-state p {
+    max-width: 320px;
+    color: var(--silver);
+    line-height: 1.7;
+    opacity: .8;
+}

@@ -3,6 +3,25 @@ import { FiClock, FiAward } from "react-icons/fi";
 import "../styles/dashboardStyles/personalRecords.css";
 
 function PersonalRecords({ workouts }) {
+    if (workouts.length === 0) {
+        return (
+            <div className="swim-card-glass dashboard-records-card">
+                <h2 className="dashboard-section-title">
+                    Personal Records
+                </h2>
+                <p className="dashboard-section-subtitle">
+                    Your all-time best performance in training
+                </p>
+                <div className="dashboard-empty-state">
+                    <h3>No records yet</h3>
+                    <p>
+                        Complete your first workout to unlock personal records
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
     const longestDistance =
         workouts.length > 0
             ? Math.max(...workouts.map(w => Number(w.distance) || 0))
@@ -70,7 +89,7 @@ function PersonalRecords({ workouts }) {
                     </div>
                     <span>Best Pace</span>
                     <strong>{formatPace(fastestWorkout)}</strong>
-                    <small className="record-subtext">{fastestWorkout.title}</small>
+                    <small className="record-subtext">{fastestWorkout ? fastestWorkout.title : "No workouts yet"}</small>
                 </div>
             </div>
         </div>

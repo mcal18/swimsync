@@ -23,13 +23,3 @@
 .recharts-tooltip-item {
     color: #fff !important;
 }
-
-.dashboard-empty-chart {
-    height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--silver);
-    opacity: .7;
-    font-size: 1rem;
-}

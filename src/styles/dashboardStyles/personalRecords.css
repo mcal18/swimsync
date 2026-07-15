@@ -70,6 +70,12 @@
     font-size: .8rem;
 }
 
+.dashboard-stat-icon:hover .icon-distance,
+.dashboard-stat-icon:hover .icon-duration,
+.dashboard-stat-icon:hover .icon-award{
+    transform: rotate(-8deg) scale(1.08);
+}
+
 .icon-distance {
     color: var(--pool-blue);
 }
