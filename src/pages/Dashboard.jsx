@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { auth } from "../config/firebase";
-import { getWorkouts } from '../services/workouts';
+import { useAuth } from '../context/AuthContext';
+import { useWorkouts } from "../context/WorkoutContext";
 import { calculateWorkoutStreks } from '../utils/streakUtils';
 
 import DashboardStats from "../components/DashboardStats";
@@ -15,33 +14,14 @@ import Login from "../components/Login";
 import "../styles/dashboardStyles/dashboard.css"
 
 function Dashboard() {
-    const [workouts, setWorkouts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { user, profile } = useAuth();
+    const { workouts, loading } = useWorkouts();
 
     const {
         currentStreak,
         longestStreak,
         lastWorkout,
     } = calculateWorkoutStreks(workouts);
-
-    const userId = auth.currentUser?.uid;
-
-    useEffect(() => {
-        if (userId) {
-            loadWorkouts();
-        } else {
-            setLoading(false);
-        }
-    }, [userId]);
-
-    async function loadWorkouts() {
-        try {
-            const data = await getWorkouts(userId);
-            setWorkouts(data);
-        } finally {
-            setLoading(false);
-        }
-    }
 
     if (loading) {
         return (
@@ -61,7 +41,7 @@ function Dashboard() {
         );
     }
 
-    if (!userId) {
+    if (!user) {
         return <Login />;
     }
 
@@ -81,7 +61,7 @@ function Dashboard() {
                 longestStreak={longestStreak}
                 lastWorkout={lastWorkout}
             />
-            <GoalProgress workouts={workouts} />
+            <GoalProgress workouts={workouts} profile={profile} />
             <div className="dashboard-charts-grid">
                 <DistanceChart workouts={workouts} />
                 <WorkoutsFocusChart workouts={workouts} />

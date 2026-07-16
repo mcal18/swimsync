@@ -12,6 +12,8 @@ function Settings() {
     const [team, setTeam] = useState("");
     const [coach, setCoach] = useState("");
     const [mainStroke, setMainStroke] = useState("");
+    const [weeklyDistanceGoal, setWeeklyDistanceGoal] = useState("");
+    const [weeklyWorkoutGoal, setWeeklyWorkoutGoal] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const [saved, setSaved] = useState(false);
@@ -22,6 +24,8 @@ function Settings() {
             setTeam(profile.team || "");
             setCoach(profile.coach || "");
             setMainStroke(profile.mainStroke || "");
+            setWeeklyDistanceGoal(profile.weeklyDistanceGoal || 10000);
+            setWeeklyWorkoutGoal(profile.weeklyWorkoutGoal || 6);
         }
     }, [profile]);
 
@@ -39,12 +43,14 @@ function Settings() {
     }
 
     function calculateProfileCompletion() {
-        const total = 6;
+        const total = 8;
         let completed = 2; // email + createdAt
         if (name) completed++;
         if (team) completed++;
         if (coach) completed++;
         if (mainStroke) completed++;
+        if (weeklyDistanceGoal) completed++;
+        if (weeklyWorkoutGoal) completed++;
         return Math.round((completed / total) * 100);
     }
 
@@ -70,6 +76,8 @@ function Settings() {
                 team,
                 coach,
                 mainStroke,
+                weeklyDistanceGoal: Number(weeklyDistanceGoal),
+                weeklyWorkoutGoal: Number(weeklyWorkoutGoal),
             });
             await refreshProfile();
             setMessage("Profile saved successfully!");
@@ -191,6 +199,30 @@ function Settings() {
                             value={mainStroke}
                             onChange={(e) => setMainStroke(e.target.value)}
                             placeholder="e.g., Freestyle, Butterfly"
+                        />
+                    </div>
+
+                    <div className="settings-group">
+                        <label htmlFor="weeklyDistanceGoal">Weekly Distance Goal (yd)</label>
+                        <input
+                            id="weeklyDistanceGoal"
+                            type="number"
+                            className="settings-input"
+                            value={weeklyDistanceGoal}
+                            onChange={(e) => setWeeklyDistanceGoal(e.target.value)}
+                            placeholder="e.g., 10000"
+                        />
+                    </div>
+
+                    <div className="settings-group">
+                        <label htmlFor="weeklyWorkoutGoal">Weekly Workout Goal</label>
+                        <input
+                            id="weeklyWorkoutGoal"
+                            type="number"
+                            className="settings-input"
+                            value={weeklyWorkoutGoal}
+                            onChange={(e) => setWeeklyWorkoutGoal(e.target.value)}
+                            placeholder="e.g., 6"
                         />
                     </div>
 

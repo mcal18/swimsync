@@ -1,79 +1,48 @@
 import "../styles/workoutStyles/workouts.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useWorkouts } from "../context/WorkoutContext";
 
 import WorkoutModal from "../components/WorkoutModal";
 import WorkoutCard from "../components/WorkoutCard";
 import WorkoutStats from "../components/WorkoutStats";
 import Login from "../components/Login";
 
-import {
-  getWorkouts,
-  createWorkout,
-  deleteWorkout,
-  updateWorkout,
-} from "../services/workouts";
-
-import { auth } from "../config/firebase";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 
 function Workouts() {
   const [showModal, setShowModal] = useState(false);
-  const [workouts, setWorkouts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { workouts, loading, addWorkout, editWorkout, removeWorkout } = useWorkouts();
+  const { user } = useAuth();
   const [editingWorkout, setEditingWorkout] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [focusFilter, setFocusFilter] = useState("");
   const [sessionFilter, setSessionFilter] = useState("");
   const [sortBy, setSortBy] = useState("date-desc");
 
-  const userId = auth.currentUser?.uid;
-
-  useEffect(() => {
-    if (userId) {
-      loadWorkouts();
-    } else {
-      setLoading(false);
-    }
-  }, [userId]);
-
-  async function loadWorkouts() {
-    if (!userId) return;
-
-    try {
-      const data = await getWorkouts(userId);
-      setWorkouts(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   async function handleSaveWorkout(workout) {
-    if (!userId) return;
+    if (!user) return;
 
     try {
       if (editingWorkout) {
-        await updateWorkout(userId, editingWorkout.id, workout);
+        await editWorkout(editingWorkout.id, workout);
       } else {
-        await createWorkout(userId, workout);
+        await addWorkout(workout);
       }
 
       closeModalHandler();
-      await loadWorkouts();
     } catch (error) {
       console.error("Failed to save workout:", error);
     }
   }
 
   async function handleDelete(workoutId) {
-    if (!userId) return;
+    if (!user) return;
 
     if (window.confirm("Are you sure you want to delete this workout?")) {
       try {
-        await deleteWorkout(userId, workoutId);
-        await loadWorkouts();
+        await removeWorkout(workoutId);
       } catch (error) {
         console.error("Failed to delete workout:", error);
       }
@@ -99,7 +68,7 @@ function Workouts() {
     );
   }
 
-  if (!userId) {
+  if (!user) {
     return <Login />;
   }
 
