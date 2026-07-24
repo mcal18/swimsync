@@ -222,8 +222,8 @@ function TrainingInsights({
                     <span>Last Workout</span>
                     <strong>
                         {lastWorkout
-                            ? lastWorkout.toLocaleDateString()
-                        : "--"}
+                            ? lastWorkout?.date?.toDate().toLocaleDateString()
+                            : "--"}
                     </strong>
                     <small>
                         Most Recent session

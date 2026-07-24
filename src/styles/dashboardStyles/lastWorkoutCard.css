@@ -1,0 +1,67 @@
+.last-workout-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.last-workout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.last-workout-title {
+    margin: 1rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.last-workout-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.last-workout-meta span {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    color: var(--silver);
+}
+
+.last-workout-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+}
+
+.last-workout-tags span {
+    padding: .45rem .8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .06);
+}
+
+.last-workout-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--pool-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.last-workout-link:hover {
+    gap: .75rem;
+}
+
+.empty-last-workout {
+    margin: 1rem 0;
+    color: var(--silver);
+}

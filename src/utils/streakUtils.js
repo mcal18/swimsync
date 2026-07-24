@@ -7,16 +7,17 @@ export function calculateWorkoutStreks(workouts) {
         };
     }
 
+    const sortedWorkouts = [...workouts]
+        .filter(w => w.date)
+        .sort((a, b) => b.date.toMillis() - a.date.toMillis());
+
+    const lastWorkout = sortedWorkouts[0];
+
     const dates = [
         ...new Set(
-            workouts
-                .filter(w => w.date)
-                .map(w =>
-                    w.date
-                        .toDate()
-                        .toISOString()
-                        .split("T")[0]
-                )
+            sortedWorkouts.map(w =>
+                w.date.toDate().toISOString().split("T")[0]
+            )
         ),
     ]
         .sort()
@@ -24,11 +25,11 @@ export function calculateWorkoutStreks(workouts) {
     let longest = 1;
     let current = 1;
 
-    for (let i =1; i < dates.length; i++) {
+    for (let i = 1; i < dates.length; i++) {
         const diff =
             (dates[i] - dates[i - 1]) /
             (1000 * 60 * 60 * 24);
-        
+
         if (diff === 1) {
             current++;
             longest = Math.max(longest, current);
@@ -38,9 +39,9 @@ export function calculateWorkoutStreks(workouts) {
     }
 
     let activeStreak = 1;
-    
-    for (let i = dates.length -1; i > 0; i --) {
-         const diff =
+
+    for (let i = dates.length - 1; i > 0; i--) {
+        const diff =
             (dates[i] - dates[i - 1]) /
             (1000 * 60 * 60 * 24);
         if (diff === 1) {
@@ -53,6 +54,6 @@ export function calculateWorkoutStreks(workouts) {
     return {
         currentStreak: activeStreak,
         longestStreak: longest,
-        lastWorkout: dates[dates.length - 1],
+        lastWorkout,
     };
 }
